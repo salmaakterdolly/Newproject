@@ -1,10 +1,25 @@
 package com.my.steps;
 
+import com.my.common.UserBase;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class userRgistration {
+public class userRgistration extends UserBase {
+	
+	@Before
+	public void openbrowser() {
+		launchBrowser();
+	}
+	@After
+	public void  closebrowser() {
+		tearDown();
+	}
+	
+	
 	@Given("^as a user i am on www\\.macys\\.com registration page\\.$")
 	public void as_a_user_i_am_on_www_macys_com_registration_page() throws Throwable {
 	    
